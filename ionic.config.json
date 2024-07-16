@@ -1,0 +1,7 @@
+{
+  "name": "curlytailsWebsite",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
