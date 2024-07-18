@@ -1,0 +1,29 @@
+<div class="card-product">
+  <div class="card-header">
+    <img class="img-fluid img"  [src]="imageUrl" alt="">
+    <div class="bookmark">
+      Bestseller
+    </div>
+  </div>
+  <div class="card-content">
+    <div class="content-first">
+      <p> {{companyName}} </p>
+      <ion-icon slot="end" name="heart-outline"></ion-icon> 
+    </div>
+    <div class="content-second">
+      <p class="lead"> {{productName}} </p>
+      <div class="rating-container">
+        <ion-icon slot="start" name="star" color="warning" size="large"></ion-icon>
+        <ion-icon slot="start" name="star" color="warning" size="large"></ion-icon>
+        <ion-icon slot="start" name="star" color="warning" size="large"></ion-icon>
+        <ion-icon slot="start" name="star" color="warning" size="large"></ion-icon>
+      </div>
+    </div>
+
+    <div class="content-third">
+      <p> {{price | currency:"INR"}} </p>
+
+      <button>Add To cart</button>
+    </div>
+  </div>
+</div>
