@@ -1,0 +1,181 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Curlytails</ion-title>
+    <ion-button slot="end" fill="outline" mode="ios" color="secondary">
+      <ion-icon slot="end" name="add"></ion-icon>
+      Orders
+    </ion-button>
+    <ion-button
+      *ngIf="!isLoggedIn"
+      id="click-trigger"
+      (click)="openPage()"
+      fill="clear"
+      slot="end"
+    >
+      <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+    </ion-button>
+    <ion-button
+      *ngIf="!isLoggedIn"
+      id="click-trigger2"
+      (click)="openPage()"
+      fill="clear"
+      slot="end"
+    >
+      <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+ 
+</ion-header>
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+  <div class="header-container">
+    <p>Best Sellers</p>
+    <p>Accesories</p>
+    <p>Health</p>
+    <p>Tous & Games</p>
+    <p>Beds</p>
+    <p>Gromming</p>
+  </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-grid fixed="true">
+    <ion-row>
+      <ion-col class="d-none d-sm-block d-md-block"  sizeXl="3" sizeLg="3" sizeMd="3">
+        <div class="container-filter">
+          <ion-list>
+            <ion-list-header>
+              <ion-label>Filter By</ion-label>
+              <ion-button class="button-text">
+                Clear all
+              </ion-button>
+            </ion-list-header>
+            <ion-accordion-group expand="compact" multiple="true" [value]="['first', 'second', 'third']">
+              <ion-accordion value="first" expand="compact">
+                <ion-item slot="header" color="light">
+                  <ion-label>Brand</ion-label>
+                </ion-item>
+                <div class="ion-padding" slot="content">
+                 <ion-list>
+                  <ion-list-header>
+                    <ion-label>Brand</ion-label>
+                  </ion-list-header>
+                  <ion-item>
+                    <ion-checkbox labelPlacement="end" justify="start">Royal Canin</ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-checkbox labelPlacement="end" justify="start">Chip Chops</ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-checkbox labelPlacement="end" justify="start">Drools</ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-checkbox labelPlacement="end" justify="start">JerHigh</ion-checkbox>
+                  </ion-item>
+                 </ion-list>
+                </div>
+              </ion-accordion>
+              <ion-accordion value="second">
+                <ion-item slot="header" color="light">
+                  <ion-label>Flavor</ion-label>
+                </ion-item>
+                <div class="ion-padding" slot="content">
+                  <ion-list>
+                    <ion-list-header>
+                      <ion-label>Flavor</ion-label>
+                    </ion-list-header>
+                    <ion-item>
+                      <ion-checkbox labelPlacement="end" justify="start">Chiken</ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-checkbox labelPlacement="end" justify="start">Multiple</ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-checkbox labelPlacement="end" justify="start">Eggs</ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-checkbox labelPlacement="end" justify="start">Fish</ion-checkbox>
+                    </ion-item>
+                   </ion-list>
+                </div>
+              </ion-accordion>
+              <ion-accordion value="third">
+                <ion-item slot="header" color="light">
+                  <ion-label>TPrice Range</ion-label>
+                </ion-item>
+                <div class="ion-padding" slot="content">
+                  <ion-range
+                    min="300" max="4000"
+                    dualKnobs="true" pin="true"
+                    snaps="true" step="1"
+                    ticks="true" value="50"
+                    color="primary"
+                    (ionChange)="rangeChange($event)">
+                      <ion-label slot="start">300</ion-label>
+                      <ion-label slot="end">4000</ion-label>
+                  </ion-range>
+                </div>
+              </ion-accordion>
+            </ion-accordion-group>
+
+
+          </ion-list>
+        </div>
+      </ion-col>
+      <ion-col sizeLg="9" sizeXl="9" sizeXs="12" sizeSm="12" sizeMd="9">
+        <div class="container-products">
+  <ion-searchbar class="ion-no-border" mode="ios" placeholder="Search..." inputmode="decimal" type="decimal" (ionChange)="onSearchChange($event)" [debounce]="250" showCancelButton="always"></ion-searchbar>
+
+          <ion-list>
+            <ion-list-header>
+              <ion-label>230 products found</ion-label>
+              <ion-select fill="outline" value="1"  interface="popover" placeholder="Filter">
+                <ion-select-option value="1">Price: Low to High</ion-select-option>
+                <ion-select-option value="2">Price: High to Low</ion-select-option>
+              </ion-select>
+              <ion-button class="d-none d-sm-block d-md-block d-lg-none button" expand="block" fill="outline" shape="block">
+               Filter
+              </ion-button>
+            </ion-list-header>
+
+            <ion-grid>
+              <ion-row>
+                <ion-col sizeLg="4" sizeXl="4" sizeMd="5" sizeSm="6">
+                  <app-product-card></app-product-card>
+                  
+                </ion-col>
+                <ion-col sizeLg="4" sizeXl="4" sizeMd="5" sizeSm="6">
+                  <app-product-card></app-product-card>
+
+                </ion-col>
+                <ion-col sizeLg="4" sizeXl="4" sizeMd="5" sizeSm="6">
+                  <app-product-card></app-product-card>
+
+                  
+                </ion-col>
+                <ion-col sizeLg="4" sizeXl="4" sizeMd="5" sizeSm="6">
+                  <app-product-card></app-product-card>
+
+                </ion-col>
+                <ion-col sizeLg="4" sizeXl="4" sizeMd="5" sizeSm="6">
+                  <app-product-card></app-product-card>
+
+                </ion-col>
+                <ion-col sizeLg="4" sizeXl="4" sizeMd="5" sizeSm="6">
+                  <app-product-card></app-product-card>
+
+                  
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-list>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <app-footer></app-footer>
+</ion-content>

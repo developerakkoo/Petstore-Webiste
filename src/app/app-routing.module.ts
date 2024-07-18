@@ -4,12 +4,20 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
+    redirectTo: 'products-grid',
     pathMatch: 'full'
   },
   {
     path: 'folder/:id',
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+  },
+  {
+    path: 'products-grid',
+    loadChildren: () => import('./products-grid/products-grid.module').then( m => m.ProductsGridPageModule)
+  },
+  {
+    path: 'add-to-cart',
+    loadChildren: () => import('./modals/add-to-cart/add-to-cart.module').then( m => m.AddToCartPageModule)
   }
 ];
 
