@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { AddToCartPage } from 'src/app/modals/add-to-cart/add-to-cart.page';
 
 @Component({
   selector: 'app-product-card',
@@ -16,8 +18,25 @@ export class ProductCardComponent  implements OnInit {
 
 
   @Output() addToCartEvent = new EventEmitter();
-  constructor() { }
+  constructor(private modalController: ModalController) { }
 
   ngOnInit() {}
 
+
+  async presentModalProduct() {
+    const modal = await this.modalController.create({
+    component: AddToCartPage,
+    componentProps: { value: 123 }
+    });
+  
+    await modal.present();
+  
+    const data = await modal.onDidDismiss();
+    console.log(data)
+  
+  }
+  addToCartEventHandler(){
+    this.addToCartEvent.emit(1);
+    this.presentModalProduct();
+  }
 }

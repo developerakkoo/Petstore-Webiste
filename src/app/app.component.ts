@@ -11,12 +11,12 @@ register();
 })
 export class AppComponent {
   public appPages = [
-    { title: 'Inbox', url: '/folder/inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/spam', icon: 'warning' },
+    { title: 'Bestsellers', url: '/folder/inbox', icon: 'mail' },
+    { title: 'Dogs', url: '/folder/outbox', icon: 'paper-plane' },
+    { title: 'Cats', url: '/folder/favorites', icon: 'heart' },
+    { title: 'Health & Fitness', url: '/folder/archived', icon: 'archive' },
+    { title: 'Toys', url: '/folder/trash', icon: 'trash' },
+   
   ];
   constructor(private menu: MenuController
     ) {

@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
    <ion-button (click)="close()" slot="end" fill="clear">
     <ion-icon slot="icon-only" name="close"></ion-icon>
@@ -7,5 +7,49 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" >
+       <div class="center-image-container">
+        <img src="assets/product-01.svg" alt="" srcset="">
+       </div>
+      </ion-col>
+      <ion-col size="12">
+        <ion-text color="dark" class="ion-text-center">
+          <h1>20% PFF: Vital Protection Small Dogs Pedigree Food.</h1>
+        </ion-text>
+        <ion-card>
+          <ion-radio-group value="strawberries">
+         <ion-item>
+          <ion-label>1 Kg</ion-label>
+          <ion-radio slot="end"></ion-radio>
+         </ion-item>
+         <ion-item>
+          <ion-label>2 Kg</ion-label>
+          <ion-radio slot="end"></ion-radio>
+         </ion-item>
+         <ion-item>
+          <ion-label>3 Kg</ion-label>
+          <ion-radio slot="end"></ion-radio>
+         </ion-item>
+        
+          
+          </ion-radio-group>
+        </ion-card>
+
+        <ion-card>
+          <ion-item>
+            <ion-icon slot="start" name="add-outline"></ion-icon>
+            <ion-label class="ion-text-center">1</ion-label>
+            <ion-icon slot="end" name="remove-outline"></ion-icon>
+
+          </ion-item>
+        </ion-card>
+
+        <ion-button (click)="addToCart()" expand="block" fill="solid">
+          Add To Cart
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

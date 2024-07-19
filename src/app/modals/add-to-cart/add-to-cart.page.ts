@@ -17,4 +17,8 @@ export class AddToCartPage implements OnInit {
     this.modalController.dismiss();
   }
 
+
+  addToCart(){
+    
+  }
 }

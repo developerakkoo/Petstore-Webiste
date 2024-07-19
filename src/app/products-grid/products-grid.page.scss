@@ -28,18 +28,3 @@ ion-input{
     min-height: 2em;
 }
 
-.header-container{
-    width: 100%;
-    height: auto;
-    padding: 20px;
-    display: flex;
-    flex-direction: row;
-    gap: 3em;
-    justify-content: center;
-}
-
-.header-container > p:hover{
-    text-decoration: underline;
-    cursor: pointer;
-    color: var(--ion-color-primary);
-}

@@ -31,7 +31,7 @@ export class FolderPage implements OnInit {
 
   isLoggedIn:boolean = false;
   interval:any;
-  isLoading:boolean = true;
+  isLoading:boolean = false;
 
   constructor(private menu: MenuController,
               private responsive: ResponsiveService
@@ -74,9 +74,9 @@ export class FolderPage implements OnInit {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
    
 
-    this.interval = setInterval(() =>{
-      this.isLoading = false;
-    },3000)
+    // this.interval = setInterval(() =>{
+    //   this.isLoading = false;
+    // },3000)
 
   }
   

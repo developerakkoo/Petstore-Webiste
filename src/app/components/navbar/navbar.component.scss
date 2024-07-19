@@ -1,0 +1,95 @@
+.navbar{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    justify-content: center;
+    background-color: var(--ion-color-secondary);
+
+}
+
+.nav-container{
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+}
+.navbar > .nav-links > a{
+    color: #fff;
+
+    text-decoration: none;
+}
+.navbar > .nav-links > a:hover{
+    margin: 0;
+    text-decoration: underline;
+    cursor: pointer;
+    color: var(--ion-color-primary);
+}
+
+ .nav-links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap :3em;
+}
+
+.nav-content{
+    display: none;
+    transition: opacity 0.5s ease, display 0.5s ease;
+    padding: 20px;
+    width: 100%;
+    height: fit-content;
+    background-color: var(--ion-color-light);
+    box-shadow: 0px 44px 46px 20px rgba(0,0,0,0.1);
+
+}
+
+.h5{
+    cursor: pointer;
+}
+
+
+.item-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid lightgrey;
+
+}
+
+  .item-list li {
+    padding: 5px 0;
+    cursor: pointer;
+    font-size: 12px;
+  }
+
+  .item-list li:hover {
+    padding: 5px 0;
+    cursor: pointer;
+    font-size: 12px;
+    text-decoration: underline;
+    font-stretch: expanded;
+  }
+
+  .hover-target:hover + .nav-content,
+.hover-target:focus + .nav-content {
+  opacity: 1;
+  display:block;
+}
+
+.hover-target:hover + .nav-content.fade-in,
+.hover-target:focus + .nav-content.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

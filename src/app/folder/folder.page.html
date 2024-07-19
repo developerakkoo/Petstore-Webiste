@@ -4,6 +4,10 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>Curlytails</ion-title>
+    <ion-button slot="end" fill="solid" mode="ios" color="primary">
+      <ion-icon slot="end" name="bag-outline"></ion-icon>
+      Orders
+    </ion-button>
     <ion-button
       *ngIf="!isLoggedIn"
       id="click-trigger"
@@ -24,9 +28,8 @@
     </ion-button>
   </ion-toolbar>
 </ion-header>
-
+<app-navbar *ngIf="!isLoading"></app-navbar>
 <ion-content [fullscreen]="true" class="ion-padding">
-  
   <div class="div" *ngIf="!isLoading">
     <ion-popover trigger="click-trigger" triggerAction="click">
       <ng-template>

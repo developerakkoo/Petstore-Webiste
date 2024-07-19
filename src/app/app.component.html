@@ -5,34 +5,31 @@
           <ion-list-header>Inbox</ion-list-header>
           <ion-note>hi&#64;ionicframework.com</ion-note>
 
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+          <!-- <ion-menu-toggle auto-hide="true" *ngFor="let p of appPages; let i = index"> -->
+            <!-- <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
               <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
               <ion-label>{{ p.title }}</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
+            </ion-item> -->
+            <ion-accordion-group *ngFor="let p of appPages; let i = index" expand="condense" multiple="true" [value]="['first', 'second', 'third']">
+              <ion-accordion value="first" expand="condense">
+                <ion-item slot="header" color="light">
+                  <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+                  <ion-label>{{p.title}}</ion-label>
+                </ion-item>
+                <div class="ion-padding" slot="content">
+                 
+                </div>
+              </ion-accordion>
+            
+            </ion-accordion-group>
+
+          <!-- </ion-menu-toggle> -->
         </ion-list>
 
         
       </ion-content>
     </ion-menu>
 
-    <ion-menu menuId="filter-menu"  contentId="main-content" type="overlay">
-      <ion-content>
-        <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi&#64;ionicframework.com</ion-note>
-
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-              <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
-
-        
-      </ion-content>
-    </ion-menu>
+   
     <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-app>
