@@ -1,5 +1,5 @@
 import { Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IonicSlides, MenuController } from '@ionic/angular';
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -29,11 +29,12 @@ export class FolderPage implements OnInit {
   slidesPerView = 1;
   navigation:string = "";
 
-  isLoggedIn:boolean = false;
+  isLoggedIn:boolean = true;
   interval:any;
   isLoading:boolean = false;
 
   constructor(private menu: MenuController,
+    private router: Router,
               private responsive: ResponsiveService
   ) {
 
@@ -93,8 +94,8 @@ export class FolderPage implements OnInit {
     gsap.to(document.querySelector("#third"),{ rotation: 27, x: 700, duration: 1 });
   }
 
-  openPage(){
-
+  openPage(pageName:string){
+    this.router.navigate([pageName]);
   }
   initScrollTriggers() {
     document.querySelectorAll(".box").forEach(box => {

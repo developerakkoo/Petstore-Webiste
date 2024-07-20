@@ -9,7 +9,10 @@ export class NavbarComponent  implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+   
+  }
+  
   showNavbar(){
     let nav = document.querySelector(".nav-content") as HTMLElement;
     nav.style.display = "block";

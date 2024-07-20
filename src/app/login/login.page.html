@@ -1,0 +1,163 @@
+<ion-header [translucent]="false" class="ion-no-border" *ngIf="!isLoading">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Curlytails</ion-title>
+    <ion-button
+      (click)="openPage('orders')"
+      slot="end"
+      fill="solid"
+      mode="ios"
+      color="primary"
+    >
+      <ion-icon slot="end" name="bag-outline"></ion-icon>
+      Orders
+    </ion-button>
+    <ion-button *ngIf="!isLoggedIn" id="click-trigger" fill="clear" slot="end">
+      <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+    </ion-button>
+    <ion-button
+      *ngIf="isLoggedIn"
+      (click)="openPage('profile')"
+      fill="clear"
+      slot="end"
+    >
+      <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+    </ion-button>
+    <ion-button *ngIf="!isLoggedIn" id="click-trigger2" fill="clear" slot="end">
+      <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+    </ion-button>
+    <ion-button
+      *ngIf="isLoggedIn"
+      (click)="openPage('cart')"
+      fill="clear"
+      slot="end"
+    >
+      <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+<app-navbar></app-navbar>
+
+<ion-content [fullscreen]="true">
+  <ion-popover trigger="click-trigger" triggerAction="click">
+    <ng-template>
+      <ion-content class="ion-padding">
+        <ion-text color="dark" class="ion-text-center">
+          <h6>Please log in</h6>
+        </ion-text>
+
+        <ion-button
+          (click)="openPage('login')"
+          expand="block"
+          fill="outline"
+          shape="block"
+        >
+          Login
+        </ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-popover>
+  <ion-popover trigger="click-trigger2" triggerAction="click">
+    <ng-template>
+      <ion-content class="ion-padding">
+        <ion-text color="dark" class="ion-text-center">
+          <h6>Please log in</h6>
+        </ion-text>
+        <ion-button expand="block" fill="outline" shape="block">
+          Login
+        </ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-popover>
+
+  <ion-grid fixed class="ion-margin-top">
+    <ion-row>
+      <ion-col
+        sizeLg="6"
+        sizeMd="6"
+        sizeSm="12"
+        sizeXs="12"
+        sizeXl="6"
+        offsetLg="3"
+        offsetXl="3"
+        offsetMd="3"
+      >
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title *ngIf="!showEnterOtp" class="ion-text-center"
+              >Login with OTP</ion-card-title
+            >
+            <ion-card-subtitle *ngIf="!showEnterOtp" class="ion-text-center"
+              >Enter your Log In details</ion-card-subtitle
+            >
+
+            <ion-card-title *ngIf="showEnterOtp" class="ion-text-center"
+              >Enter OTP</ion-card-title
+            >
+            <ion-card-subtitle *ngIf="showEnterOtp" class="ion-text-center"
+              >The OTP is sent on your Mobile Number.</ion-card-subtitle
+            >
+          </ion-card-header>
+          <ion-card-content>
+            <form
+              *ngIf="!showEnterOtp"
+              [formGroup]="form"
+             
+            >
+              <ion-input
+                shape="block"
+                fill="outline"
+                label="Phone number"
+                labelPlacement="stacked"
+                required
+                formControlName="phoneNo"
+                type="number"
+                counter="true"
+                maxlength="10"
+              >
+                <ion-icon slot="start" name="call"></ion-icon>
+              </ion-input>
+
+              
+            </form>
+            
+            <ng-otp-input class="ion-text-center" *ngIf="showEnterOtp"  (onInputChange)="onOtpChange($event)"  [config]="{length:4,allowNumbersOnly:true}"></ng-otp-input>
+            <br />
+            <ion-text color="medium"  class="ion-text-center">
+              <ion-button
+              expand="full"
+              shape="block"
+              mode="ios"
+              color="primary"
+              type="submit"
+              [disabled]="form.invalid"
+              *ngIf="!showEnterOtp"
+               (click)="onSubmit()"
+            >
+              Request OTP
+              <ion-icon slot="end" name="arrow-forward"></ion-icon>
+            </ion-button>
+            <ion-button
+              expand="full"
+              shape="block"
+              mode="ios"
+              color="primary"
+              (click)="verifyOTP()"
+              *ngIf="showEnterOtp"
+            >
+              Verify OTP
+              <ion-icon slot="end" name="arrow-forward"></ion-icon>
+            </ion-button>
+         <p *ngIf="showEnterOtp">Didn't receive OTP?</p>
+            </ion-text>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <app-info-bar></app-info-bar>
+
+  <app-footer></app-footer>
+</ion-content>

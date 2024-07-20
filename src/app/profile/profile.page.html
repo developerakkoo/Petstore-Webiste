@@ -1,0 +1,127 @@
+<ion-header [translucent]="false" class="ion-no-border" *ngIf="!isLoading">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>My Profile</ion-title>
+    <!-- <ion-button (click)="openPage('orders')" slot="end" fill="solid" mode="ios" color="primary">
+      <ion-icon slot="end" name="bag-outline"></ion-icon>
+      Orders
+    </ion-button> -->
+    <ion-button
+      *ngIf="!isLoggedIn"
+      id="click-trigger"
+      fill="clear"
+      slot="end"
+    >
+      <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+    </ion-button>
+    <ion-button
+    *ngIf="isLoggedIn"
+   
+    (click)="openPage('profile')"
+    fill="clear"
+    slot="end"
+  >
+    <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+  </ion-button>
+    <ion-button
+      *ngIf="!isLoggedIn"
+      id="click-trigger2"
+     
+      fill="clear"
+      slot="end"
+    >
+      <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+    </ion-button>
+    <ion-button
+    *ngIf="isLoggedIn"
+   (click)="openPage('cart')"
+   
+    fill="clear"
+    slot="end"
+  >
+    <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+  </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<div class="container">
+  <ion-accordion-group [multiple]="true" [value]="['first', 'third']">
+    <ion-accordion value="first">
+      <ion-item slot="header" color="light">
+        <ion-label>View Profile</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-input type="text" disabled="true" placeholder="Akshay Jadhav" fill="outline" label="Name" labelPlacement="stacked"></ion-input>
+        
+        <br>
+        <ion-input type="email" disabled="true" placeholder="developerakshayjadhav@gmail.com" fill="outline" label="Email" labelPlacement="stacked">
+
+        </ion-input>
+        <br>
+        <ion-input type="number" disabled="true" placeholder="+91 8007477149" fill="outline" label="Phone Number" labelPlacement="stacked"></ion-input>
+
+        <br>
+
+      </div>
+    </ion-accordion>
+    <ion-accordion value="second">
+      <ion-item slot="header" color="light">
+        <ion-label>Address</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-button (click)="addAddress()" expand="block" fill="solid" mode="ios">
+          Add Address
+        </ion-button>
+      </div>
+    </ion-accordion>
+    <ion-accordion value="third">
+      <ion-item slot="header" color="light">
+        <ion-label>Orders</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-list>
+          <ion-list-header>
+            <ion-label>My Recent Orders</ion-label>
+          </ion-list-header>
+          <ion-item>
+            <ion-avatar slot="start">
+              <img src="assets/product-01.svg" />
+            </ion-avatar>
+            <ion-label>Pedigree Dog Food
+              <p>OrderId:- #1234</p>
+              <p>Price:- 230</p>
+            </ion-label>
+            <ion-badge color="primary" mode="ios" slot="end">Out for Delivery</ion-badge>
+          </ion-item>
+          <ion-item>
+            <ion-avatar slot="start">
+              <img src="assets/product-01.svg" />
+            </ion-avatar>
+            <ion-label>Pedigree Dog Food
+              <p>OrderId:- #1234</p>
+              <p>Price:- 230</p>
+            </ion-label>
+            <ion-badge color="success" mode="ios" slot="end">Delivered</ion-badge>
+          </ion-item>
+          <ion-item>
+            <ion-avatar slot="start">
+              <img src="assets/product-01.svg" />
+            </ion-avatar>
+            <ion-label>Pedigree Dog Food
+              <p>OrderId:- #1234</p>
+              <p>Price:- 230</p>
+            </ion-label>
+            <ion-badge color="warning" mode="ios" slot="end">Pickup</ion-badge>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+</div>
+
+<app-info-bar></app-info-bar>
+<app-footer></app-footer>
+</ion-content>
